@@ -1,0 +1,772 @@
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#e9ecef;
+    font-family:Arial,sans-serif;
+    color:#050505;
+}
+
+.page-wrap{
+    max-width:1200px;
+    margin:20px auto;
+}
+
+.toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.toolbar span{
+    color:#666;
+    margin-left:8px;
+    font-size:13px;
+}
+
+.toolbar button{
+    border:1px solid #aaa;
+    background:#fff;
+    padding:8px 10px;
+    margin-left:5px;
+    cursor:pointer;
+}
+
+.toolbar .print-btn{
+    background:#1d4f8f;
+    color:#fff;
+    border-color:#1d4f8f;
+}
+
+.bill{
+    background:#fff;
+    border:2px solid #111;
+    padding:16px 20px;
+    min-height:780px;
+    font-size:10px;
+}
+
+.thank-you{
+    text-align:center;
+    font-style:italic;
+    margin:-4px 0 7px;
+}
+
+.company-header{
+    border:1px solid #111;
+    min-height:110px;
+    display:grid;
+    grid-template-columns:70px 1fr auto;
+    gap:10px;
+    align-items:center;
+    padding:12px;
+}
+
+.logo-mark{
+    height:69px;
+    background:#f2f0e5;
+    border-radius:4px;
+    display:grid;
+    place-items:center;
+    color:#174b85;
+    font-size:22px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.logo-mark small{
+    display:block;
+    font-size:4px;
+    color:#111;
+}
+
+.logo-mark img{
+    display:block;
+    object-fit:contain;
+}
+
+.company-info h1{
+    font-size:17px;
+    color:#082d61;
+    margin:0 0 6px;
+}
+
+.company-info p{
+    margin:3px 0;
+}
+
+.company-info span,
+.party-body span{
+    border:1px solid #111;
+    padding:1px 3px;
+}
+
+.company-header h2{
+    font-size:27px;
+    margin:0;
+    color:#000;
+}
+
+.quote-meta{
+    height:32px;
+    border:1px solid #111;
+    border-top:0;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    align-items:center;
+    padding:0 8px;
+    font-size:10px;
+}
+
+.quote-meta input{
+    border:0;
+    font:inherit;
+    font-weight:bold;
+    width:90px;
+}
+
+.party-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    border-left:1px solid #111;
+}
+
+.party{
+    border-right:1px solid #111;
+    border-bottom:1px solid #111;
+}
+
+.party h3{
+    margin:0;
+    padding:6px 8px;
+    background:#f5eedb;
+    border-bottom:1px solid #111;
+    font-size:11px;
+}
+
+.party-body{
+    padding:8px;
+    position:relative;
+    min-height:114px;
+}
+
+.party-name{
+    font-size:12px;
+    font-weight:bold;
+    width:100%;
+    border:0;
+    margin-bottom:4px;
+}
+
+.party-body p{
+    margin:3px 0;
+}
+
+.party-body input,
+.party-body textarea{
+    border:1px solid #999;
+    font:inherit;
+    min-width:70px;
+    padding:2px 4px;
+    background:#fff;
+}
+
+.party-body textarea{
+    display:block;
+    width:100%;
+    height:28px;
+    resize:none;
+}
+
+.copy-button{
+    position:absolute;
+    right:5px;
+    top:4px;
+    font-size:8px;
+    padding:3px;
+    background:#fff;
+    border:1px solid #aaa;
+    cursor:pointer;
+}
+
+.items table{
+    border-collapse:collapse;
+    width:100%;
+    font-size:9px;
+}
+
+.items th,
+.items td{
+    border:1px solid #111;
+    padding:4px;
+    text-align:center;
+}
+
+.items th{
+    background:#f5eedb;
+}
+
+.items .left{
+    text-align:left;
+}
+
+.items small{
+    display:block;
+    font-size:8px;
+}
+
+.items input{
+    border:0;
+    width:100%;
+    font:inherit;
+    text-align:center;
+}
+
+.items td.left input{
+    text-align:left;
+}
+
+.items td.left>.product{
+    font-size:10px!important;
+}
+
+.items td.left small{
+    font-size:10px!important;
+    white-space:nowrap;
+}
+
+.items td.left small input{
+    display:inline-block!important;
+    width:72%!important;
+    font-size:10px!important;
+}
+
+.items tfoot td{
+    font-weight:bold;
+}
+
+.right{
+    text-align:right!important;
+}
+
+.after-items{
+    display:grid;
+    grid-template-columns:62% 38%;
+    border-left:1px solid #111;
+}
+
+.words,
+.tax-summary{
+    border-right:1px solid #111;
+    border-bottom:1px solid #111;
+    min-height:72px;
+    text-align:center;
+    padding:5px;
+}
+
+.words strong{
+    display:block;
+    margin-top:6px;
+}
+
+.tax-summary{
+    padding:0;
+    text-align:left;
+    min-width:0;
+    overflow:hidden;
+}
+
+/* FIX: Tax label and amount get separate columns */
+.tax-summary p{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) max-content;
+    align-items:center;
+    column-gap:8px;
+    margin:0;
+    padding:3px 6px;
+    border-bottom:1px solid #ddd;
+    width:100%;
+    min-width:0;
+}
+
+.tax-summary p span{
+    min-width:0;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.tax-summary p b{
+    min-width:0;
+    white-space:nowrap;
+    text-align:right;
+    display:block;
+    font-variant-numeric:tabular-nums;
+}
+
+.bottom-section{
+    display:grid;
+    grid-template-columns:62% 38%;
+    border-left:1px solid #111;
+}
+
+.bank-and-terms,
+.sign-box{
+    border-right:1px solid #111;
+    border-bottom:1px solid #111;
+}
+
+.bank-box{
+    padding:6px;
+    border-bottom:1px solid #111;
+    min-height:114px;
+}
+
+.bank-box h3,
+.terms h3{
+    color:#174b85;
+    font-size:10px;
+    margin:0 0 7px;
+}
+
+.payment-method label{
+    display:flex;
+    justify-content:space-between;
+    margin:4px 0;
+    width:70%;
+}
+
+.payment-method input{
+    border:0;
+    font:inherit;
+    text-align:right;
+    font-weight:bold;
+    width:55%;
+}
+
+.remove-payment{
+    font-size:8px;
+}
+
+.terms{
+    padding:7px;
+    min-height:80px;
+}
+
+.terms h3{
+    color:#000;
+}
+
+.terms p{
+    margin:5px 0;
+}
+
+.sign-box{
+    text-align:center;
+    position:relative;
+}
+
+/* FIX: Final total label and amount get separate columns */
+.total-amount{
+    border-bottom:1px solid #111;
+    padding:8px;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) max-content;
+    align-items:center;
+    column-gap:10px;
+    font-size:14px;
+    width:100%;
+    box-sizing:border-box;
+}
+
+.total-amount b{
+    min-width:0;
+    white-space:nowrap;
+    text-align:left;
+}
+
+.total-amount strong{
+    min-width:0;
+    white-space:nowrap;
+    text-align:right;
+    font-variant-numeric:tabular-nums;
+}
+
+.sign-box p{
+    margin:8px 0 2px;
+}
+
+.signature-stamp{
+    margin:5px auto 3px;
+    width:100px;
+    height:50px;
+    background:#d7d3e6;
+    color:#382e76;
+    display:grid;
+    place-items:center;
+    font-style:italic;
+    font-weight:bold;
+    transform:rotate(-3deg);
+}
+
+.signature-stamp img{
+    display:block;
+    object-fit:contain;
+}
+
+.signature-line{
+    border-top:1px solid #111;
+    margin:0 20px;
+    padding:4px;
+}
+
+footer{
+    margin:7px auto 0;
+    background:#f4f1eb;
+    border-radius:9px;
+    padding:6px 12px;
+    width:max-content;
+    font-size:9px;
+}
+
+.remove-item{
+    border:0;
+    background:#fee2e2;
+    color:#b91c1c;
+    cursor:pointer;
+}
+
+.save-payment{
+    border:1px solid #aaa;
+    background:#fff;
+    padding:8px 10px;
+    margin-left:5px;
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print{
+
+    @page{
+        size:A4 landscape;
+        margin:7mm;
+    }
+
+    html,
+    body{
+        width:100%;
+        margin:0!important;
+        padding:0!important;
+        background:#fff!important;
+    }
+
+    *{
+        -webkit-print-color-adjust:exact!important;
+        print-color-adjust:exact!important;
+    }
+
+    .page-wrap{
+        width:100%!important;
+        max-width:none!important;
+        margin:0!important;
+        padding:0!important;
+    }
+
+    .toolbar,
+    .no-print{
+        display:none!important;
+    }
+
+    .bill{
+        width:100%!important;
+        max-width:100%!important;
+
+        /* FIX: remove fixed height */
+        height:auto!important;
+        max-height:none!important;
+        min-height:0!important;
+
+        margin:0!important;
+        padding:2.2mm!important;
+
+        border:1px solid #111!important;
+
+        font-size:6.7pt!important;
+
+        /* FIX: don't clip the summary */
+        overflow:visible!important;
+
+        page-break-before:avoid!important;
+        page-break-after:avoid!important;
+        page-break-inside:avoid!important;
+
+        break-before:avoid!important;
+        break-after:avoid!important;
+        break-inside:avoid!important;
+    }
+
+    .thank-you{
+        margin:0 0 1mm!important;
+        font-size:6.3pt!important;
+    }
+
+    .company-header{
+        min-height:19mm!important;
+        height:19mm!important;
+        padding:1.5mm!important;
+        gap:1.5mm!important;
+        grid-template-columns:13mm 1fr auto!important;
+    }
+
+    .logo-mark{
+        height:14mm!important;
+    }
+
+    .logo-mark img{
+        width:11.5mm!important;
+        height:11.5mm!important;
+    }
+
+    .company-info h1{
+        font-size:10.5pt!important;
+        margin:0 0 .6mm!important;
+    }
+
+    .company-info p{
+        font-size:6.1pt!important;
+        margin:.25mm 0!important;
+    }
+
+    .company-header h2{
+        font-size:17pt!important;
+    }
+
+    .quote-meta{
+        height:6mm!important;
+        font-size:6.2pt!important;
+        padding:0 1.5mm!important;
+    }
+
+    .quote-meta input{
+        width:21mm!important;
+    }
+
+    .party h3{
+        padding:.8mm 1.5mm!important;
+        font-size:6.7pt!important;
+    }
+
+    .party-body{
+        min-height:19mm!important;
+        padding:1mm!important;
+    }
+
+    .party-body p{
+        margin:.35mm 0!important;
+    }
+
+    .party-body textarea{
+        height:5mm!important;
+        padding:.5px 1.5px!important;
+    }
+
+    .party-body input{
+        padding:.5px 1.5px!important;
+        font-size:6.2pt!important;
+    }
+
+    .party-body span input{
+        width:34px!important;
+        min-width:0!important;
+        padding:1px 2px!important;
+        border:0!important;
+        background:transparent!important;
+    }
+
+    .items table{
+        font-size:5.8pt!important;
+        table-layout:fixed!important;
+    }
+
+    .items th,
+    .items td{
+        padding:.45mm!important;
+        line-height:1!important;
+        overflow:hidden!important;
+        vertical-align:middle!important;
+    }
+
+    .items small,
+    .items td.left small{
+        font-size:5.7pt!important;
+    }
+
+    .items td.left>.product{
+        font-size:6.2pt!important;
+    }
+
+    .items td.left small input{
+        font-size:5.7pt!important;
+    }
+
+    .items td.taxable,
+    .items td.cgst,
+    .items td.sgst,
+    .items td.line-total{
+        white-space:nowrap!important;
+        text-align:right!important;
+        font-variant-numeric:tabular-nums!important;
+    }
+
+    .after-items .words{
+        min-height:16mm!important;
+        height:auto!important;
+    }
+
+    /* FIX: allow all six summary rows to have proper height */
+    .after-items .tax-summary{
+        min-height:16mm!important;
+        height:auto!important;
+    }
+
+    .words{
+        padding:1mm!important;
+    }
+
+    .words strong{
+        margin-top:.6mm!important;
+        font-size:6pt!important;
+    }
+
+    /* =====================================================
+       TAX SUMMARY OVERLAP FIX
+       ===================================================== */
+
+    .tax-summary p{
+        display:grid!important;
+
+        /* Left = label
+           Right = fixed amount column */
+        grid-template-columns:minmax(0,1fr) 28mm!important;
+
+        align-items:center!important;
+
+        column-gap:2mm!important;
+
+        padding:.65mm 1mm!important;
+
+        line-height:1.1!important;
+
+        min-height:2.55mm!important;
+
+        width:100%!important;
+    }
+
+    .tax-summary p span{
+        white-space:nowrap!important;
+        overflow:hidden!important;
+        text-overflow:ellipsis!important;
+    }
+
+    .tax-summary p b{
+        white-space:nowrap!important;
+        text-align:right!important;
+        font-variant-numeric:tabular-nums!important;
+    }
+
+    .bank-box{
+        min-height:20mm!important;
+        padding:1.5mm!important;
+    }
+
+    .bank-box h3,
+    .terms h3{
+        font-size:6.6pt!important;
+        margin:0 0 1mm!important;
+    }
+
+    .payment-method label{
+        margin:.55mm 0!important;
+        font-size:5.9pt!important;
+    }
+
+    .payment-method input{
+        font-size:5.9pt!important;
+    }
+
+    .terms{
+        min-height:12mm!important;
+        padding:1.5mm!important;
+    }
+
+    .terms p{
+        margin:.55mm 0!important;
+        font-size:5.9pt!important;
+    }
+
+    /* =====================================================
+       FINAL TOTAL OVERLAP FIX
+       ===================================================== */
+
+    .total-amount{
+        display:grid!important;
+
+        grid-template-columns:minmax(0,1fr) 30mm!important;
+
+        align-items:center!important;
+
+        column-gap:2mm!important;
+
+        padding:1.5mm!important;
+
+        font-size:8.5pt!important;
+
+        width:100%!important;
+    }
+
+    .total-amount b{
+        white-space:nowrap!important;
+        text-align:left!important;
+    }
+
+    .total-amount strong{
+        white-space:nowrap!important;
+        text-align:right!important;
+        font-variant-numeric:tabular-nums!important;
+    }
+
+    .sign-box p{
+        margin:1mm 0 .3mm!important;
+        font-size:5.9pt!important;
+    }
+
+    .signature-stamp{
+        width:22mm!important;
+        height:9mm!important;
+        margin:.6mm auto!important;
+    }
+
+    .signature-stamp img{
+        width:20mm!important;
+        height:8mm!important;
+    }
+
+    .signature-line{
+        margin:0 6mm!important;
+        padding:.7mm!important;
+        font-size:5.9pt!important;
+    }
+
+    footer{
+        margin-top:.8mm!important;
+        padding:.7mm 2.5mm!important;
+        font-size:5.6pt!important;
+    }
+}
