@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Shubh Enterprises | Quotation</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<main class="page-wrap">
+
+<section class="toolbar no-print">
+    <div>
+        <b>Shubh Enterprises</b>
+        <span>Quotation maker</span>
+    </div>
+
+    <div>
+        <button id="add-item" type="button">+ Add product</button>
+        <button id="add-payment" type="button">+ Payment method</button>
+        <button id="print-quote" class="print-btn" type="button">Print / Save PDF</button>
+        <button id="new-quote" type="button">Create new</button>
+    </div>
+</section>
+
+<article class="bill">
+
+<p class="thank-you">♜ &nbsp; Thank-you for doing business with us</p>
+
+<section class="company-header">
+
+    <div class="logo-mark">
+        SE
+        <small>SHUBH ENTERPRISES</small>
+    </div>
+
+    <div class="company-info">
+        <h1>SHUBH ENTERPRISES</h1>
+        <p>C/o Bhagvat Singh S/o Vishram Singh Near Thana Bankhedi,</p>
+        <p>Narmadapuram, Madhya Pradesh, 461990</p>
+        <p>☎ 8959283868 &nbsp; ✉ patelshubham1995b@gmail.com</p>
+        <p>
+            GST : 23DQTPP7368J1ZX
+            &nbsp;&nbsp;
+            <span>State Code : 230</span>
+        </p>
+    </div>
+
+    <h2>QUOTATION</h2>
+
+</section>
+
+<section class="quote-meta">
+    <span>
+        Quotation Number :
+        <input id="quote-number" value="2">
+    </span>
+
+    <span>
+        Quotation Validity :
+        <input id="valid-date" type="date">
+    </span>
+
+    <span>
+        Date :
+        <input id="quote-date" type="date">
+    </span>
+</section>
+
+<section class="party-grid">
+
+    <div class="party">
+
+        <h3>Quotation For</h3>
+
+        <div class="party-body">
+
+            
+
+            <p>
+                C/o
+                <input placeholder="Customer name">
+            </p>
+
+            <p>
+                S/o
+                <input placeholder="Father's name">
+            </p>
+
+            <textarea placeholder="Complete address"></textarea>
+
+            <p>
+                State:
+                <input placeholder="State">
+            </p>
+
+            <p>
+                GST:
+                <input value="URP">
+                <span>
+                    State Code :
+                    <input value="230">
+                </span>
+            </p>
+
+            <p>
+                ☎
+                <input placeholder="Mobile number">
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="party">
+
+        <h3>Ship To</h3>
+
+        <div class="party-body">
+
+            <button
+                class="copy-button no-print"
+                id="copy-customer"
+                type="button"
+            >
+                Same as quotation for
+            </button>
+
+    
+
+            <p>
+                C/o
+                <input placeholder="Customer name">
+            </p>
+
+            <p>
+                S/o
+                <input placeholder="Father's name">
+            </p>
+
+            <textarea placeholder="Shipping address"></textarea>
+
+            <p>
+                State:
+                <input placeholder="State">
+            </p>
+
+            <p>
+                GST:
+                <input value="URP">
+
+                <span>
+                    State Code :
+                    <input value="230">
+                </span>
+            </p>
+
+            <p>
+                ☎
+                <input placeholder="Mobile number">
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="items">
+
+<table>
+
+<thead>
+
+<tr>
+    <th rowspan="2">Sr. No.</th>
+    <th rowspan="2" class="left">Name of Product</th>
+    <th rowspan="2">QTY</th>
+    <th rowspan="2">Unit</th>
+    <th rowspan="2">Rate</th>
+    <th rowspan="2">Taxable Value</th>
+
+    <th colspan="2">CGST</th>
+    <th colspan="2">SGST</th>
+
+    <th rowspan="2">Total</th>
+    <th rowspan="2" class="no-print"></th>
+</tr>
+
+<tr>
+    <th>Rate</th>
+    <th>Amount</th>
+    <th>Rate</th>
+    <th>Amount</th>
+</tr>
+
+</thead>
+
+<tbody id="items-body"></tbody>
+
+<tfoot>
+
+<tr>
+    <td colspan="2" class="right">Total</td>
+
+    <td id="qty-total">0</td>
+
+    <td></td>
+
+    <td></td>
+
+    <td id="subtotal">₹0.00</td>
+
+    <td colspan="2" id="cgst-total">₹0.00</td>
+
+    <td colspan="2" id="sgst-total">₹0.00</td>
+
+    <td id="grand-total">₹0.00</td>
+
+    <td class="no-print"></td>
+</tr>
+
+</tfoot>
+
+</table>
+
+</section>
+
+<section class="after-items">
+
+    <div class="words">
+
+        <b>Total Amount in words</b>
+
+        <strong id="amount-words">
+            Zero Rupees Only /-
+        </strong>
+
+    </div>
+
+    <div class="tax-summary">
+
+        <p>
+            <span>Taxable Amount</span>
+            <b id="summary-subtotal">₹0.00</b>
+        </p>
+
+        <p>
+            <span>Add : CGST</span>
+            <b id="summary-cgst">₹0.00</b>
+        </p>
+
+        <p>
+            <span>Add : SGST</span>
+            <b id="summary-sgst">₹0.00</b>
+        </p>
+
+        <p>
+            <span>Total Tax Amount</span>
+            <b id="summary-tax">₹0.00</b>
+        </p>
+
+        <p>
+            <span>TOTAL</span>
+            <b id="summary-grand">₹0.00</b>
+        </p>
+
+        <p>
+            <span>Round Off Value</span>
+            <b>₹ 0.00</b>
+        </p>
+
+    </div>
+
+</section>
+
+<section class="bottom-section">
+
+    <div class="bank-and-terms">
+
+        <div class="bank-box">
+
+            <h3>▣ &nbsp; Bank and Payment Details</h3>
+
+            <div id="payment-methods">
+
+                <div class="payment-method">
+
+                    <label>
+                        Account Name
+                        <input value="SHUBH ENTERPRISES">
+                    </label>
+
+                    <label>
+                        Account No.
+                        <input value="9980201100000020">
+                    </label>
+
+                    <label>
+                        IFSC Code
+                        <input value="BKID0009980">
+                    </label>
+
+                    <label>
+                        Bank Name
+                        <input value="Bank of India">
+                    </label>
+
+                    <label>
+                        Branch Name
+                        <input value="BANKHEDI">
+                    </label>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="terms">
+
+            <h3>Terms and conditions</h3>
+
+            <p>
+                1. This is an electronically generated document.
+            </p>
+
+            <p>
+                2. All disputes are subject to Narmadapuram jurisdiction.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="sign-box">
+
+        <div class="total-amount">
+
+            <b>Total Amount</b>
+
+            <strong id="final-total">
+                ₹0.00
+            </strong>
+
+        </div>
+
+        <p>
+            Certified that the particular given above are true and correct for,
+        </p>
+
+        <b>SHUBH ENTERPRISES</b>
+
+        <div class="signature-stamp">
+            Authorised<br>
+            Signature
+        </div>
+
+        <div class="signature-line">
+            Authorised Signatory
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    Document Made From &nbsp;
+    <b>🧾 Shubh Enterprises</b>
+</footer>
+
+</article>
+
+</main>
+
+<template id="item-template">
+
+<tr class="item-row">
+
+    <td class="serial"></td>
+
+    <td class="left">
+
+        <input
+            class="product"
+            placeholder="Product name"
+        >
+
+        <small>
+            Model:
+            <input
+                class="model"
+                placeholder="Model"
+            >
+        </small>
+
+        <small>
+            Brand:
+            <input
+                class="brand"
+                placeholder="Brand / Company"
+            >
+        </small>
+
+    </td>
+
+    <td>
+        <input
+            class="qty"
+            type="number"
+            min="0"
+            value="1"
+        >
+    </td>
+
+    <td>
+        <input
+            class="unit"
+            value="NOS"
+        >
+    </td>
+
+    <td>
+        <input
+            class="rate"
+            type="number"
+            min="0"
+            step="0.01"
+            value="0"
+        >
+    </td>
+
+    <td class="taxable">₹0.00</td>
+
+    <td>2.50%</td>
+
+    <td class="cgst">₹0.00</td>
+
+    <td>2.50%</td>
+
+    <td class="sgst">₹0.00</td>
+
+    <td class="line-total">₹0.00</td>
+
+    <td class="no-print">
+        <button
+            class="remove-item"
+            type="button"
+        >
+            ×
+        </button>
+    </td>
+
+</tr>
+
+</template>
+
+<template id="payment-template">
+
+<div class="payment-method added-payment">
+
+    <label>
+        Account Name
+        <input placeholder="Account holder">
+    </label>
+
+    <label>
+        Account No.
+        <input placeholder="Account number">
+    </label>
+
+    <label>
+        IFSC Code
+        <input placeholder="IFSC / UPI ID">
+    </label>
+
+    <label>
+        Bank Name
+        <input placeholder="Bank name">
+    </label>
+
+    <label>
+        Branch Name
+        <input placeholder="Branch name">
+    </label>
+
+    <button
+        class="remove-payment no-print"
+        type="button"
+    >
+        Remove
+    </button>
+
+</div>
+
+</template>
+
+<script src="script.js"></script>
+
+</body>
+</html>
