@@ -156,6 +156,7 @@ const formatProducts = () => {
         const product = row.querySelector('.product');
         const model = row.querySelector('.model');
         const brand = row.querySelector('.brand');
+        const company = row.querySelector('.company');
 
         const smalls = row.querySelectorAll('small');
 
@@ -168,7 +169,11 @@ const formatProducts = () => {
         }
 
         if (brand) {
-            brand.placeholder = 'Company -';
+            brand.placeholder = 'Brand -';
+        }
+
+        if (company) {
+            company.placeholder = 'Company -';
         }
 
         if (smalls[0] && smalls[0].firstChild) {
@@ -176,17 +181,20 @@ const formatProducts = () => {
         }
 
         if (smalls[1] && smalls[1].firstChild) {
-            smalls[1].firstChild.nodeValue = 'Company - ';
+            smalls[1].firstChild.nodeValue = 'Brand - ';
         }
+
+        if (smalls[2] && smalls[2].firstChild) {
+            smalls[2].firstChild.nodeValue = 'Company - ';
+        }
+
     });
 };
 
 new MutationObserver(formatProducts)
     .observe(B, {
-        childList:true
+        childList: true
     });
-
-
 /* =========================================================
    CALCULATION
    ========================================================= */
