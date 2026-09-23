@@ -195,10 +195,6 @@ new MutationObserver(formatProducts)
     .observe(B, {
         childList: true
     });
-/* =========================================================
-   CALCULATION
-   ========================================================= */
-
 function calc() {
 
     let subtotal = 0;
@@ -213,12 +209,21 @@ function calc() {
         const rate =
             Number(row.querySelector('.rate').value) || 0;
 
+        // Rate is GST-inclusive
         const lineTotal = qty * rate;
 
-        const cgst = lineTotal * 0.025;
+        // Total GST rate
+        const gstRate = 5;
 
+        // GST-inclusive formula
         const taxable =
-            lineTotal - (cgst * 2);
+            lineTotal * 100 / (100 + gstRate);
+
+        // CGST and SGST are half of total GST
+        const cgstRate = gstRate / 2;
+
+        const cgst =
+            taxable * cgstRate / 100;
 
         qtyTotal += qty;
 
