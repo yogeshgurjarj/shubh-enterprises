@@ -1,3 +1,4 @@
+```css
 *{
     box-sizing:border-box;
 }
@@ -206,11 +207,6 @@ body{
     border-collapse:collapse;
     width:100%;
     font-size:9px;
-
-    /*
-       Fixed layout keeps every column inside
-       the quotation box.
-    */
     table-layout:fixed;
 }
 
@@ -219,7 +215,6 @@ body{
     border:1px solid #111;
     padding:4px;
     text-align:center;
-
     min-width:0;
     overflow:hidden;
 }
@@ -234,11 +229,8 @@ body{
 
 
 /* =========================================================
-   COLUMN WIDTHS
-   ========================================================= */
-/* =========================================================
    ITEM TABLE COLUMN WIDTHS
-   Designed for values up to ₹9,999,999.00
+   CGST / SGST BALANCED
    ========================================================= */
 
 /* Sr. No. */
@@ -247,10 +239,10 @@ body{
     width:3%;
 }
 
-/* Product */
+/* Product / Model / Brand / Company */
 .items th:nth-child(2),
 .items td:nth-child(2){
-    width:27%;
+    width:24%;
 }
 
 /* QTY */
@@ -274,31 +266,31 @@ body{
 /* Taxable Value */
 .items th:nth-child(6),
 .items td:nth-child(6){
-    width:10%;
+    width:11%;
 }
 
 /* CGST Rate */
 .items th:nth-child(7),
 .items td:nth-child(7){
-    width:5%;
+    width:4%;
 }
 
 /* CGST Amount */
 .items th:nth-child(8),
 .items td:nth-child(8){
-    width:11%;
+    width:13%;
 }
 
 /* SGST Rate */
 .items th:nth-child(9),
 .items td:nth-child(9){
-    width:5%;
+    width:4%;
 }
 
 /* SGST Amount */
 .items th:nth-child(10),
 .items td:nth-child(10){
-    width:11%;
+    width:13%;
 }
 
 /* Total */
@@ -312,6 +304,7 @@ body{
 .items td:nth-child(12){
     width:3%;
 }
+
 
 /* =========================================================
    PRODUCT / MODEL / BRAND / COMPANY
@@ -333,10 +326,8 @@ body{
 
 .items td.left{
     text-align:left;
-
     min-width:0;
     overflow:hidden;
-
     white-space:normal;
     overflow-wrap:anywhere;
     word-break:break-word;
@@ -344,74 +335,59 @@ body{
 
 .items td.left>.product{
     display:block;
-
     width:100%;
     max-width:100%;
-
     box-sizing:border-box;
-
     font-size:10px!important;
     text-align:left;
-
     white-space:normal;
     overflow-wrap:anywhere;
     word-break:break-word;
-
     min-width:0;
 }
 
 
 /* Model / Brand / Company */
+
 .items td.left small{
     display:flex;
-
     width:100%;
     max-width:100%;
-
     align-items:flex-start;
-
     font-size:9px!important;
-
     margin-top:2px;
-
     white-space:normal;
-
     overflow-wrap:anywhere;
     word-break:break-word;
-
     min-width:0;
 }
 
-
-/* Model / Brand / Company input */
 .items td.left small input{
     display:inline-block!important;
-
     width:auto!important;
     max-width:100%;
-
     flex:1 1 auto;
     min-width:0;
-
     box-sizing:border-box;
-
     font-size:9px!important;
-
     text-align:left;
-
     white-space:normal;
-
     overflow-wrap:anywhere;
     word-break:break-word;
 }
 
 
-/* Amount / numeric cells */
+/* =========================================================
+   AMOUNT / NUMERIC CELLS
+   ========================================================= */
+
 .items td.taxable,
 .items td.cgst,
 .items td.sgst,
 .items td.line-total{
     white-space:nowrap;
+    overflow:hidden;
+    text-overflow:clip;
     text-align:right;
     font-variant-numeric:tabular-nums;
 }
@@ -563,17 +539,11 @@ body{
 .total-amount{
     border-bottom:1px solid #111;
     padding:8px;
-
     display:grid;
-
     grid-template-columns:minmax(0,1fr) max-content;
-
     align-items:center;
-
     column-gap:10px;
-
     font-size:14px;
-
     width:100%;
     box-sizing:border-box;
 }
@@ -688,24 +658,17 @@ footer{
     .bill{
         width:100%!important;
         max-width:100%!important;
-
         height:auto!important;
         max-height:none!important;
         min-height:0!important;
-
         margin:0!important;
         padding:2.2mm!important;
-
         border:1px solid #111!important;
-
         font-size:6.7pt!important;
-
         overflow:visible!important;
-
         page-break-before:avoid!important;
         page-break-after:avoid!important;
         page-break-inside:avoid!important;
-
         break-before:avoid!important;
         break-after:avoid!important;
         break-inside:avoid!important;
@@ -816,95 +779,98 @@ footer{
 
     .items table{
         width:100%!important;
-
         font-size:5.8pt!important;
-
         table-layout:fixed!important;
-
         border-collapse:collapse!important;
     }
 
     .items th,
     .items td{
         padding:.45mm!important;
-
         line-height:1!important;
-
         overflow:hidden!important;
-
         vertical-align:middle!important;
-
         min-width:0!important;
     }
 
 
     /* =====================================================
-       PRINT COLUMN WIDTHS
+       PRINT ITEM TABLE WIDTHS
+       CGST / SGST BALANCED
        ===================================================== */
-/* =====================================================
-   PRINT ITEM TABLE WIDTHS
-   Supports values up to ₹9,999,999.00
-   ===================================================== */
 
-.items th:nth-child(1),
-.items td:nth-child(1){
-    width:3%!important;
-}
+    /* Sr. No. */
+    .items th:nth-child(1),
+    .items td:nth-child(1){
+        width:3%!important;
+    }
 
-.items th:nth-child(2),
-.items td:nth-child(2){
-    width:27%!important;
-}
+    /* Product */
+    .items th:nth-child(2),
+    .items td:nth-child(2){
+        width:24%!important;
+    }
 
-.items th:nth-child(3),
-.items td:nth-child(3){
-    width:4%!important;
-}
+    /* QTY */
+    .items th:nth-child(3),
+    .items td:nth-child(3){
+        width:4%!important;
+    }
 
-.items th:nth-child(4),
-.items td:nth-child(4){
-    width:4%!important;
-}
+    /* Unit */
+    .items th:nth-child(4),
+    .items td:nth-child(4){
+        width:4%!important;
+    }
 
-.items th:nth-child(5),
-.items td:nth-child(5){
-    width:7%!important;
-}
+    /* Rate */
+    .items th:nth-child(5),
+    .items td:nth-child(5){
+        width:7%!important;
+    }
 
-.items th:nth-child(6),
-.items td:nth-child(6){
-    width:10%!important;
-}
+    /* Taxable Value */
+    .items th:nth-child(6),
+    .items td:nth-child(6){
+        width:11%!important;
+    }
 
-.items th:nth-child(7),
-.items td:nth-child(7){
-    width:5%!important;
-}
+    /* CGST Rate */
+    .items th:nth-child(7),
+    .items td:nth-child(7){
+        width:4%!important;
+    }
 
-.items th:nth-child(8),
-.items td:nth-child(8){
-    width:11%!important;
-}
+    /* CGST Amount */
+    .items th:nth-child(8),
+    .items td:nth-child(8){
+        width:13%!important;
+    }
 
-.items th:nth-child(9),
-.items td:nth-child(9){
-    width:5%!important;
-}
+    /* SGST Rate */
+    .items th:nth-child(9),
+    .items td:nth-child(9){
+        width:4%!important;
+    }
 
-.items th:nth-child(10),
-.items td:nth-child(10){
-    width:11%!important;
-}
+    /* SGST Amount */
+    .items th:nth-child(10),
+    .items td:nth-child(10){
+        width:13%!important;
+    }
 
-.items th:nth-child(11),
-.items td:nth-child(11){
-    width:10%!important;
-}
+    /* Total */
+    .items th:nth-child(11),
+    .items td:nth-child(11){
+        width:10%!important;
+    }
 
-.items th:nth-child(12),
-.items td:nth-child(12){
-    width:3%!important;
-}
+    /* Remove */
+    .items th:nth-child(12),
+    .items td:nth-child(12){
+        width:3%!important;
+    }
+
 
     /* =====================================================
        PRODUCT / MODEL / BRAND / COMPANY - PRINT
@@ -912,102 +878,73 @@ footer{
 
     .items td.left{
         text-align:left!important;
-
         min-width:0!important;
-
         overflow:hidden!important;
-
         white-space:normal!important;
-
         overflow-wrap:anywhere!important;
-
         word-break:break-word!important;
     }
 
     .items td.left>.product{
         display:block!important;
-
         width:100%!important;
         max-width:100%!important;
-
         box-sizing:border-box!important;
-
         font-size:6.2pt!important;
-
         text-align:left!important;
-
         white-space:normal!important;
-
         overflow-wrap:anywhere!important;
-
         word-break:break-word!important;
-
         min-width:0!important;
-
         height:auto!important;
     }
 
 
     /* Model / Brand / Company */
+
     .items small,
     .items td.left small{
         display:flex!important;
-
         width:100%!important;
         max-width:100%!important;
-
         font-size:5.7pt!important;
-
         line-height:1.05!important;
-
         margin-top:.3mm!important;
-
         white-space:normal!important;
-
         overflow-wrap:anywhere!important;
-
         word-break:break-word!important;
-
         min-width:0!important;
-
         align-items:flex-start!important;
     }
 
     .items td.left small input{
         display:inline-block!important;
-
         width:auto!important;
         max-width:100%!important;
-
         flex:1 1 auto!important;
-
         min-width:0!important;
-
         box-sizing:border-box!important;
-
         font-size:5.7pt!important;
-
         text-align:left!important;
-
         white-space:normal!important;
-
         overflow-wrap:anywhere!important;
-
         word-break:break-word!important;
-
         height:auto!important;
     }
 
 
-    /* Numeric columns */
+    /* =====================================================
+       NUMERIC AMOUNT COLUMNS
+       ===================================================== */
+
     .items td.taxable,
     .items td.cgst,
     .items td.sgst,
     .items td.line-total{
         white-space:nowrap!important;
-
+        overflow:hidden!important;
+        text-overflow:clip!important;
         text-align:right!important;
-
         font-variant-numeric:tabular-nums!important;
     }
 
@@ -1037,40 +974,29 @@ footer{
 
 
     /* =====================================================
-       TAX SUMMARY OVERLAP FIX
+       TAX SUMMARY
        ===================================================== */
 
     .tax-summary p{
         display:grid!important;
-
         grid-template-columns:minmax(0,1fr) 28mm!important;
-
         align-items:center!important;
-
         column-gap:2mm!important;
-
         padding:.65mm 1mm!important;
-
         line-height:1.1!important;
-
         min-height:2.55mm!important;
-
         width:100%!important;
     }
 
     .tax-summary p span{
         white-space:nowrap!important;
-
         overflow:hidden!important;
-
         text-overflow:ellipsis!important;
     }
 
     .tax-summary p b{
         white-space:nowrap!important;
-
         text-align:right!important;
-
         font-variant-numeric:tabular-nums!important;
     }
 
@@ -1111,36 +1037,27 @@ footer{
 
 
     /* =====================================================
-       FINAL TOTAL OVERLAP FIX
+       FINAL TOTAL
        ===================================================== */
 
     .total-amount{
         display:grid!important;
-
         grid-template-columns:minmax(0,1fr) 30mm!important;
-
         align-items:center!important;
-
         column-gap:2mm!important;
-
         padding:1.5mm!important;
-
         font-size:8.5pt!important;
-
         width:100%!important;
     }
 
     .total-amount b{
         white-space:nowrap!important;
-
         text-align:left!important;
     }
 
     .total-amount strong{
         white-space:nowrap!important;
-
         text-align:right!important;
-
         font-variant-numeric:tabular-nums!important;
     }
 
@@ -1151,14 +1068,12 @@ footer{
 
     .sign-box p{
         margin:1mm 0 .3mm!important;
-
         font-size:5.9pt!important;
     }
 
     .signature-stamp{
         width:22mm!important;
         height:9mm!important;
-
         margin:.6mm auto!important;
     }
 
@@ -1169,9 +1084,7 @@ footer{
 
     .signature-line{
         margin:0 6mm!important;
-
         padding:.7mm!important;
-
         font-size:5.9pt!important;
     }
 
@@ -1182,9 +1095,16 @@ footer{
 
     footer{
         margin-top:.8mm!important;
-
         padding:.7mm 2.5mm!important;
-
         font-size:5.6pt!important;
     }
 }
+```
+
+**One important note:** this version keeps the CGST/SGST **rate columns deliberately narrow** and gives the saved space to the **amount columns**. So the table is now:
+
+**Taxable 11% → CGST Rate 4% → CGST Amount 13% → SGST Rate 4% → SGST Amount 13% → Total 10%**
+
+This is the layout I’d use for your maximum **₹9,999,999.00** amount while keeping the quotation printable on **one A4 landscape page**.
+
+If your actual HTML has **CGST Rate/Amount and SGST Rate/Amount in a different column order**, send me the current HTML table row/header and I can align the CSS exactly to it.
