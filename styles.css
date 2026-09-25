@@ -236,35 +236,39 @@ body{
 /* =========================================================
    COLUMN WIDTHS
    ========================================================= */
+/* =========================================================
+   ITEM TABLE COLUMN WIDTHS
+   Designed for values up to ₹9,999,999.00
+   ========================================================= */
 
 /* Sr. No. */
 .items th:nth-child(1),
 .items td:nth-child(1){
-    width:3.5%;
+    width:3%;
 }
 
-/* Product - largest column */
+/* Product */
 .items th:nth-child(2),
 .items td:nth-child(2){
-    width:30%;
+    width:27%;
 }
 
-/* QTY - small */
+/* QTY */
 .items th:nth-child(3),
 .items td:nth-child(3){
-    width:4.5%;
+    width:4%;
 }
 
 /* Unit */
 .items th:nth-child(4),
 .items td:nth-child(4){
-    width:5%;
+    width:4%;
 }
 
 /* Rate */
 .items th:nth-child(5),
 .items td:nth-child(5){
-    width:8%;
+    width:7%;
 }
 
 /* Taxable Value */
@@ -279,10 +283,10 @@ body{
     width:5%;
 }
 
-/* CGST Amount - wider */
+/* CGST Amount */
 .items th:nth-child(8),
 .items td:nth-child(8){
-    width:9%;
+    width:11%;
 }
 
 /* SGST Rate */
@@ -291,24 +295,23 @@ body{
     width:5%;
 }
 
-/* SGST Amount - wider */
+/* SGST Amount */
 .items th:nth-child(10),
 .items td:nth-child(10){
-    width:9%;
+    width:11%;
 }
 
 /* Total */
 .items th:nth-child(11),
 .items td:nth-child(11){
-    width:7%;
+    width:10%;
 }
 
 /* Remove */
 .items th:nth-child(12),
 .items td:nth-child(12){
-    width:4%;
+    width:3%;
 }
-
 
 /* =========================================================
    PRODUCT / MODEL / BRAND / COMPANY
@@ -838,79 +841,70 @@ footer{
     /* =====================================================
        PRINT COLUMN WIDTHS
        ===================================================== */
+/* =====================================================
+   PRINT ITEM TABLE WIDTHS
+   Supports values up to ₹9,999,999.00
+   ===================================================== */
 
-    /* Sr. No. */
-    .items th:nth-child(1),
-    .items td:nth-child(1){
-        width:3.5%!important;
-    }
+.items th:nth-child(1),
+.items td:nth-child(1){
+    width:3%!important;
+}
 
-    /* Product */
-    .items th:nth-child(2),
-    .items td:nth-child(2){
-        width:30%!important;
-    }
+.items th:nth-child(2),
+.items td:nth-child(2){
+    width:27%!important;
+}
 
-    /* QTY */
-    .items th:nth-child(3),
-    .items td:nth-child(3){
-        width:4.5%!important;
-    }
+.items th:nth-child(3),
+.items td:nth-child(3){
+    width:4%!important;
+}
 
-    /* Unit */
-    .items th:nth-child(4),
-    .items td:nth-child(4){
-        width:5%!important;
-    }
+.items th:nth-child(4),
+.items td:nth-child(4){
+    width:4%!important;
+}
 
-    /* Rate */
-    .items th:nth-child(5),
-    .items td:nth-child(5){
-        width:8%!important;
-    }
+.items th:nth-child(5),
+.items td:nth-child(5){
+    width:7%!important;
+}
 
-    /* Taxable */
-    .items th:nth-child(6),
-    .items td:nth-child(6){
-        width:10%!important;
-    }
+.items th:nth-child(6),
+.items td:nth-child(6){
+    width:10%!important;
+}
 
-    /* CGST Rate */
-    .items th:nth-child(7),
-    .items td:nth-child(7){
-        width:5%!important;
-    }
+.items th:nth-child(7),
+.items td:nth-child(7){
+    width:5%!important;
+}
 
-    /* CGST Amount */
-    .items th:nth-child(8),
-    .items td:nth-child(8){
-        width:9%!important;
-    }
+.items th:nth-child(8),
+.items td:nth-child(8){
+    width:11%!important;
+}
 
-    /* SGST Rate */
-    .items th:nth-child(9),
-    .items td:nth-child(9){
-        width:5%!important;
-    }
+.items th:nth-child(9),
+.items td:nth-child(9){
+    width:5%!important;
+}
 
-    /* SGST Amount */
-    .items th:nth-child(10),
-    .items td:nth-child(10){
-        width:9%!important;
-    }
+.items th:nth-child(10),
+.items td:nth-child(10){
+    width:11%!important;
+}
 
-    /* Total */
-    .items th:nth-child(11),
-    .items td:nth-child(11){
-        width:7%!important;
-    }
+.items th:nth-child(11),
+.items td:nth-child(11){
+    width:10%!important;
+}
 
-    /* Remove */
-    .items th:nth-child(12),
-    .items td:nth-child(12){
-        width:4%!important;
-    }
-
+.items th:nth-child(12),
+.items td:nth-child(12){
+    width:3%!important;
+}
 
     /* =====================================================
        PRODUCT / MODEL / BRAND / COMPANY - PRINT
