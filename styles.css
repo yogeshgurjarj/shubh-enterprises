@@ -192,12 +192,193 @@ body{
     cursor:pointer;
 }
 
+/* =========================================================
+   ITEM TABLE - COLUMN WIDTH & LONG TEXT FIX
+   ========================================================= */
+
+.items{
+    width:100%;
+    overflow:hidden;
+}
+
 .items table{
     border-collapse:collapse;
     width:100%;
+    table-layout:fixed;
     font-size:9px;
 }
 
+.items th,
+.items td{
+    border:1px solid #111;
+    padding:4px;
+    text-align:center;
+    vertical-align:middle;
+    box-sizing:border-box;
+}
+
+.items th{
+    background:#f5eedb;
+}
+
+.items .left{
+    text-align:left;
+}
+
+/* ---------------------------------------------------------
+   COLUMN WIDTHS
+   --------------------------------------------------------- */
+
+/* Sr. No. */
+.items th:first-child,
+.items td:first-child{
+    width:4%;
+}
+
+/* Product column - GIVE MOST WIDTH */
+.items th:nth-child(2),
+.items td:nth-child(2){
+    width:30%;
+}
+
+/* QTY */
+.items th:nth-child(3),
+.items td:nth-child(3){
+    width:6%;
+}
+
+/* Unit */
+.items th:nth-child(4),
+.items td:nth-child(4){
+    width:6%;
+}
+
+/* Rate */
+.items th:nth-child(5),
+.items td:nth-child(5){
+    width:8%;
+}
+
+/* Taxable Value */
+.items th:nth-child(6),
+.items td:nth-child(6){
+    width:10%;
+}
+
+/* CGST Rate */
+.items th:nth-child(7),
+.items td:nth-child(7){
+    width:5%;
+}
+
+/* CGST Amount */
+.items th:nth-child(8),
+.items td:nth-child(8){
+    width:8%;
+}
+
+/* SGST Rate */
+.items th:nth-child(9),
+.items td:nth-child(9){
+    width:5%;
+}
+
+/* SGST Amount */
+.items th:nth-child(10),
+.items td:nth-child(10){
+    width:8%;
+}
+
+/* Total */
+.items th:nth-child(11),
+.items td:nth-child(11){
+    width:10%;
+}
+
+/* Remove button column */
+.items th:nth-child(12),
+.items td:nth-child(12){
+    width:4%;
+}
+
+
+/* ---------------------------------------------------------
+   PRODUCT / MODEL / BRAND / COMPANY
+   --------------------------------------------------------- */
+
+.items td.left{
+    overflow:hidden;
+    word-break:break-word;
+    overflow-wrap:anywhere;
+}
+
+.items td.left>.product{
+    display:block;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+    font-size:10px!important;
+    text-align:left;
+    white-space:normal;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+}
+
+.items td.left small{
+    display:flex;
+    align-items:flex-start;
+    width:100%;
+    max-width:100%;
+    font-size:9px!important;
+
+    /* IMPORTANT:
+       Allow long Model/Brand/Company values to wrap */
+    white-space:normal;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+
+    margin-top:2px;
+}
+
+.items td.left small input{
+    display:inline-block!important;
+    width:auto!important;
+    flex:1 1 auto;
+    min-width:0;
+    max-width:100%;
+    box-sizing:border-box;
+
+    font-size:9px!important;
+    text-align:left;
+
+    white-space:normal;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+}
+
+/* All normal item inputs */
+.items input{
+    border:0;
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+    font:inherit;
+    text-align:center;
+}
+
+/* Product text is left aligned */
+.items td.left input{
+    text-align:left;
+}
+
+/* Don't allow numeric cells to expand */
+.items td.taxable,
+.items td.cgst,
+.items td.sgst,
+.items td.line-total{
+    white-space:nowrap;
+    overflow:hidden;
+}
 .items th,
 .items td{
     border:1px solid #111;
