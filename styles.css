@@ -207,8 +207,10 @@ body{
     width:100%;
     font-size:9px;
 
-    /* Important:
-       keeps every column inside the table */
+    /*
+       Fixed layout keeps every column inside
+       the quotation box.
+    */
     table-layout:fixed;
 }
 
@@ -218,7 +220,6 @@ body{
     padding:4px;
     text-align:center;
 
-    /* Prevent cell content from escaping */
     min-width:0;
     overflow:hidden;
 }
@@ -236,22 +237,22 @@ body{
    COLUMN WIDTHS
    ========================================================= */
 
-/* Sr. No. - very small */
+/* Sr. No. */
 .items th:nth-child(1),
 .items td:nth-child(1){
-    width:4%;
+    width:3.5%;
 }
 
-/* Product - largest width */
+/* Product - largest column */
 .items th:nth-child(2),
 .items td:nth-child(2){
-    width:32%;
+    width:30%;
 }
 
 /* QTY - small */
 .items th:nth-child(3),
 .items td:nth-child(3){
-    width:5%;
+    width:4.5%;
 }
 
 /* Unit */
@@ -266,7 +267,7 @@ body{
     width:8%;
 }
 
-/* Taxable */
+/* Taxable Value */
 .items th:nth-child(6),
 .items td:nth-child(6){
     width:10%;
@@ -278,10 +279,10 @@ body{
     width:5%;
 }
 
-/* CGST Amount */
+/* CGST Amount - wider */
 .items th:nth-child(8),
 .items td:nth-child(8){
-    width:8%;
+    width:9%;
 }
 
 /* SGST Rate */
@@ -290,16 +291,16 @@ body{
     width:5%;
 }
 
-/* SGST Amount */
+/* SGST Amount - wider */
 .items th:nth-child(10),
 .items td:nth-child(10){
-    width:8%;
+    width:9%;
 }
 
 /* Total */
 .items th:nth-child(11),
 .items td:nth-child(11){
-    width:6%;
+    width:7%;
 }
 
 /* Remove */
@@ -330,9 +331,10 @@ body{
 .items td.left{
     text-align:left;
 
-    /* Important for long names */
     min-width:0;
     overflow:hidden;
+
+    white-space:normal;
     overflow-wrap:anywhere;
     word-break:break-word;
 }
@@ -356,7 +358,7 @@ body{
 }
 
 
-/* Model / Brand / Company rows */
+/* Model / Brand / Company */
 .items td.left small{
     display:flex;
 
@@ -401,7 +403,7 @@ body{
 }
 
 
-/* Keep numeric values clean */
+/* Amount / numeric cells */
 .items td.taxable,
 .items td.cgst,
 .items td.sgst,
@@ -547,7 +549,7 @@ body{
 
 
 /* =========================================================
-   SIGNATURE / TOTAL
+   SIGNATURE / FINAL TOTAL
    ========================================================= */
 
 .sign-box{
@@ -560,6 +562,7 @@ body{
     padding:8px;
 
     display:grid;
+
     grid-template-columns:minmax(0,1fr) max-content;
 
     align-items:center;
@@ -705,15 +708,15 @@ footer{
         break-inside:avoid!important;
     }
 
-    .thank-you{
-        margin:0 0 1mm!important;
-        font-size:6.3pt!important;
-    }
-
 
     /* =====================================================
        COMPANY HEADER
        ===================================================== */
+
+    .thank-you{
+        margin:0 0 1mm!important;
+        font-size:6.3pt!important;
+    }
 
     .company-header{
         min-height:19mm!important;
@@ -832,26 +835,26 @@ footer{
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        PRINT COLUMN WIDTHS
-       ----------------------------------------------------- */
+       ===================================================== */
 
     /* Sr. No. */
     .items th:nth-child(1),
     .items td:nth-child(1){
-        width:4%!important;
+        width:3.5%!important;
     }
 
     /* Product */
     .items th:nth-child(2),
     .items td:nth-child(2){
-        width:32%!important;
+        width:30%!important;
     }
 
     /* QTY */
     .items th:nth-child(3),
     .items td:nth-child(3){
-        width:5%!important;
+        width:4.5%!important;
     }
 
     /* Unit */
@@ -881,7 +884,7 @@ footer{
     /* CGST Amount */
     .items th:nth-child(8),
     .items td:nth-child(8){
-        width:8%!important;
+        width:9%!important;
     }
 
     /* SGST Rate */
@@ -893,13 +896,13 @@ footer{
     /* SGST Amount */
     .items th:nth-child(10),
     .items td:nth-child(10){
-        width:8%!important;
+        width:9%!important;
     }
 
     /* Total */
     .items th:nth-child(11),
     .items td:nth-child(11){
-        width:6%!important;
+        width:7%!important;
     }
 
     /* Remove */
@@ -910,7 +913,7 @@ footer{
 
 
     /* =====================================================
-       PRODUCT FIELD - PRINT
+       PRODUCT / MODEL / BRAND / COMPANY - PRINT
        ===================================================== */
 
     .items td.left{
@@ -976,7 +979,6 @@ footer{
         align-items:flex-start!important;
     }
 
-
     .items td.left small input{
         display:inline-block!important;
 
@@ -1003,7 +1005,7 @@ footer{
     }
 
 
-    /* Numeric columns stay clean */
+    /* Numeric columns */
     .items td.taxable,
     .items td.cgst,
     .items td.sgst,
@@ -1041,7 +1043,7 @@ footer{
 
 
     /* =====================================================
-       TAX SUMMARY
+       TAX SUMMARY OVERLAP FIX
        ===================================================== */
 
     .tax-summary p{
@@ -1115,7 +1117,7 @@ footer{
 
 
     /* =====================================================
-       FINAL TOTAL
+       FINAL TOTAL OVERLAP FIX
        ===================================================== */
 
     .total-amount{
@@ -1136,12 +1138,15 @@ footer{
 
     .total-amount b{
         white-space:nowrap!important;
+
         text-align:left!important;
     }
 
     .total-amount strong{
         white-space:nowrap!important;
+
         text-align:right!important;
+
         font-variant-numeric:tabular-nums!important;
     }
 
@@ -1152,12 +1157,14 @@ footer{
 
     .sign-box p{
         margin:1mm 0 .3mm!important;
+
         font-size:5.9pt!important;
     }
 
     .signature-stamp{
         width:22mm!important;
         height:9mm!important;
+
         margin:.6mm auto!important;
     }
 
@@ -1168,7 +1175,9 @@ footer{
 
     .signature-line{
         margin:0 6mm!important;
+
         padding:.7mm!important;
+
         font-size:5.9pt!important;
     }
 
@@ -1179,7 +1188,9 @@ footer{
 
     footer{
         margin-top:.8mm!important;
+
         padding:.7mm 2.5mm!important;
+
         font-size:5.6pt!important;
     }
 }
