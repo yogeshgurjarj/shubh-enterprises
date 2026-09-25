@@ -192,8 +192,9 @@ body{
     cursor:pointer;
 }
 
+
 /* =========================================================
-   ITEM TABLE - COLUMN WIDTH & LONG TEXT FIX
+   ITEMS TABLE
    ========================================================= */
 
 .items{
@@ -204,8 +205,11 @@ body{
 .items table{
     border-collapse:collapse;
     width:100%;
-    table-layout:fixed;
     font-size:9px;
+
+    /* Important:
+       keeps every column inside the table */
+    table-layout:fixed;
 }
 
 .items th,
@@ -213,8 +217,10 @@ body{
     border:1px solid #111;
     padding:4px;
     text-align:center;
-    vertical-align:middle;
-    box-sizing:border-box;
+
+    /* Prevent cell content from escaping */
+    min-width:0;
+    overflow:hidden;
 }
 
 .items th{
@@ -225,32 +231,33 @@ body{
     text-align:left;
 }
 
-/* ---------------------------------------------------------
-   COLUMN WIDTHS
-   --------------------------------------------------------- */
 
-/* Sr. No. */
-.items th:first-child,
-.items td:first-child{
+/* =========================================================
+   COLUMN WIDTHS
+   ========================================================= */
+
+/* Sr. No. - very small */
+.items th:nth-child(1),
+.items td:nth-child(1){
     width:4%;
 }
 
-/* Product column - GIVE MOST WIDTH */
+/* Product - largest width */
 .items th:nth-child(2),
 .items td:nth-child(2){
-    width:30%;
+    width:32%;
 }
 
-/* QTY */
+/* QTY - small */
 .items th:nth-child(3),
 .items td:nth-child(3){
-    width:6%;
+    width:5%;
 }
 
 /* Unit */
 .items th:nth-child(4),
 .items td:nth-child(4){
-    width:6%;
+    width:5%;
 }
 
 /* Rate */
@@ -259,7 +266,7 @@ body{
     width:8%;
 }
 
-/* Taxable Value */
+/* Taxable */
 .items th:nth-child(6),
 .items td:nth-child(6){
     width:10%;
@@ -292,107 +299,19 @@ body{
 /* Total */
 .items th:nth-child(11),
 .items td:nth-child(11){
-    width:10%;
+    width:6%;
 }
 
-/* Remove button column */
+/* Remove */
 .items th:nth-child(12),
 .items td:nth-child(12){
     width:4%;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    PRODUCT / MODEL / BRAND / COMPANY
-   --------------------------------------------------------- */
-
-.items td.left{
-    overflow:hidden;
-    word-break:break-word;
-    overflow-wrap:anywhere;
-}
-
-.items td.left>.product{
-    display:block;
-    width:100%;
-    max-width:100%;
-    box-sizing:border-box;
-    font-size:10px!important;
-    text-align:left;
-    white-space:normal;
-    overflow-wrap:anywhere;
-    word-break:break-word;
-}
-
-.items td.left small{
-    display:flex;
-    align-items:flex-start;
-    width:100%;
-    max-width:100%;
-    font-size:9px!important;
-
-    /* IMPORTANT:
-       Allow long Model/Brand/Company values to wrap */
-    white-space:normal;
-    overflow-wrap:anywhere;
-    word-break:break-word;
-
-    margin-top:2px;
-}
-
-.items td.left small input{
-    display:inline-block!important;
-    width:auto!important;
-    flex:1 1 auto;
-    min-width:0;
-    max-width:100%;
-    box-sizing:border-box;
-
-    font-size:9px!important;
-    text-align:left;
-
-    white-space:normal;
-    overflow-wrap:anywhere;
-    word-break:break-word;
-}
-
-/* All normal item inputs */
-.items input{
-    border:0;
-    width:100%;
-    max-width:100%;
-    box-sizing:border-box;
-    font:inherit;
-    text-align:center;
-}
-
-/* Product text is left aligned */
-.items td.left input{
-    text-align:left;
-}
-
-/* Don't allow numeric cells to expand */
-.items td.taxable,
-.items td.cgst,
-.items td.sgst,
-.items td.line-total{
-    white-space:nowrap;
-    overflow:hidden;
-}
-.items th,
-.items td{
-    border:1px solid #111;
-    padding:4px;
-    text-align:center;
-}
-
-.items th{
-    background:#f5eedb;
-}
-
-.items .left{
-    text-align:left;
-}
+   ========================================================= */
 
 .items small{
     display:block;
@@ -402,27 +321,94 @@ body{
 .items input{
     border:0;
     width:100%;
+    max-width:100%;
     font:inherit;
     text-align:center;
+    box-sizing:border-box;
 }
 
-.items td.left input{
+.items td.left{
     text-align:left;
+
+    /* Important for long names */
+    min-width:0;
+    overflow:hidden;
+    overflow-wrap:anywhere;
+    word-break:break-word;
 }
 
 .items td.left>.product{
+    display:block;
+
+    width:100%;
+    max-width:100%;
+
+    box-sizing:border-box;
+
     font-size:10px!important;
+    text-align:left;
+
+    white-space:normal;
+    overflow-wrap:anywhere;
+    word-break:break-word;
+
+    min-width:0;
 }
 
+
+/* Model / Brand / Company rows */
 .items td.left small{
-    font-size:10px!important;
-    white-space:nowrap;
+    display:flex;
+
+    width:100%;
+    max-width:100%;
+
+    align-items:flex-start;
+
+    font-size:9px!important;
+
+    margin-top:2px;
+
+    white-space:normal;
+
+    overflow-wrap:anywhere;
+    word-break:break-word;
+
+    min-width:0;
 }
 
+
+/* Model / Brand / Company input */
 .items td.left small input{
     display:inline-block!important;
-    width:72%!important;
-    font-size:10px!important;
+
+    width:auto!important;
+    max-width:100%;
+
+    flex:1 1 auto;
+    min-width:0;
+
+    box-sizing:border-box;
+
+    font-size:9px!important;
+
+    text-align:left;
+
+    white-space:normal;
+
+    overflow-wrap:anywhere;
+    word-break:break-word;
+}
+
+
+/* Keep numeric values clean */
+.items td.taxable,
+.items td.cgst,
+.items td.sgst,
+.items td.line-total{
+    white-space:nowrap;
+    text-align:right;
+    font-variant-numeric:tabular-nums;
 }
 
 .items tfoot td{
@@ -432,6 +418,11 @@ body{
 .right{
     text-align:right!important;
 }
+
+
+/* =========================================================
+   AFTER ITEMS
+   ========================================================= */
 
 .after-items{
     display:grid;
@@ -460,7 +451,11 @@ body{
     overflow:hidden;
 }
 
-/* FIX: Tax label and amount get separate columns */
+
+/* =========================================================
+   TAX SUMMARY
+   ========================================================= */
+
 .tax-summary p{
     display:grid;
     grid-template-columns:minmax(0,1fr) max-content;
@@ -487,6 +482,11 @@ body{
     display:block;
     font-variant-numeric:tabular-nums;
 }
+
+
+/* =========================================================
+   BOTTOM SECTION
+   ========================================================= */
 
 .bottom-section{
     display:grid;
@@ -545,20 +545,29 @@ body{
     margin:5px 0;
 }
 
+
+/* =========================================================
+   SIGNATURE / TOTAL
+   ========================================================= */
+
 .sign-box{
     text-align:center;
     position:relative;
 }
 
-/* FIX: Final total label and amount get separate columns */
 .total-amount{
     border-bottom:1px solid #111;
     padding:8px;
+
     display:grid;
     grid-template-columns:minmax(0,1fr) max-content;
+
     align-items:center;
+
     column-gap:10px;
+
     font-size:14px;
+
     width:100%;
     box-sizing:border-box;
 }
@@ -603,6 +612,11 @@ body{
     margin:0 20px;
     padding:4px;
 }
+
+
+/* =========================================================
+   FOOTER / BUTTONS
+   ========================================================= */
 
 footer{
     margin:7px auto 0;
@@ -669,7 +683,6 @@ footer{
         width:100%!important;
         max-width:100%!important;
 
-        /* FIX: remove fixed height */
         height:auto!important;
         max-height:none!important;
         min-height:0!important;
@@ -681,7 +694,6 @@ footer{
 
         font-size:6.7pt!important;
 
-        /* FIX: don't clip the summary */
         overflow:visible!important;
 
         page-break-before:avoid!important;
@@ -697,6 +709,11 @@ footer{
         margin:0 0 1mm!important;
         font-size:6.3pt!important;
     }
+
+
+    /* =====================================================
+       COMPANY HEADER
+       ===================================================== */
 
     .company-header{
         min-height:19mm!important;
@@ -729,6 +746,11 @@ footer{
         font-size:17pt!important;
     }
 
+
+    /* =====================================================
+       QUOTATION META
+       ===================================================== */
+
     .quote-meta{
         height:6mm!important;
         font-size:6.2pt!important;
@@ -738,6 +760,11 @@ footer{
     .quote-meta input{
         width:21mm!important;
     }
+
+
+    /* =====================================================
+       PARTY SECTION
+       ===================================================== */
 
     .party h3{
         padding:.8mm 1.5mm!important;
@@ -771,47 +798,233 @@ footer{
         background:transparent!important;
     }
 
+
+    /* =====================================================
+       ITEM TABLE - PRINT
+       ===================================================== */
+
+    .items{
+        width:100%!important;
+        overflow:hidden!important;
+    }
+
     .items table{
+        width:100%!important;
+
         font-size:5.8pt!important;
+
         table-layout:fixed!important;
+
+        border-collapse:collapse!important;
     }
 
     .items th,
     .items td{
         padding:.45mm!important;
+
         line-height:1!important;
+
         overflow:hidden!important;
+
         vertical-align:middle!important;
+
+        min-width:0!important;
     }
 
-    .items small,
-    .items td.left small{
-        font-size:5.7pt!important;
+
+    /* -----------------------------------------------------
+       PRINT COLUMN WIDTHS
+       ----------------------------------------------------- */
+
+    /* Sr. No. */
+    .items th:nth-child(1),
+    .items td:nth-child(1){
+        width:4%!important;
+    }
+
+    /* Product */
+    .items th:nth-child(2),
+    .items td:nth-child(2){
+        width:32%!important;
+    }
+
+    /* QTY */
+    .items th:nth-child(3),
+    .items td:nth-child(3){
+        width:5%!important;
+    }
+
+    /* Unit */
+    .items th:nth-child(4),
+    .items td:nth-child(4){
+        width:5%!important;
+    }
+
+    /* Rate */
+    .items th:nth-child(5),
+    .items td:nth-child(5){
+        width:8%!important;
+    }
+
+    /* Taxable */
+    .items th:nth-child(6),
+    .items td:nth-child(6){
+        width:10%!important;
+    }
+
+    /* CGST Rate */
+    .items th:nth-child(7),
+    .items td:nth-child(7){
+        width:5%!important;
+    }
+
+    /* CGST Amount */
+    .items th:nth-child(8),
+    .items td:nth-child(8){
+        width:8%!important;
+    }
+
+    /* SGST Rate */
+    .items th:nth-child(9),
+    .items td:nth-child(9){
+        width:5%!important;
+    }
+
+    /* SGST Amount */
+    .items th:nth-child(10),
+    .items td:nth-child(10){
+        width:8%!important;
+    }
+
+    /* Total */
+    .items th:nth-child(11),
+    .items td:nth-child(11){
+        width:6%!important;
+    }
+
+    /* Remove */
+    .items th:nth-child(12),
+    .items td:nth-child(12){
+        width:4%!important;
+    }
+
+
+    /* =====================================================
+       PRODUCT FIELD - PRINT
+       ===================================================== */
+
+    .items td.left{
+        text-align:left!important;
+
+        min-width:0!important;
+
+        overflow:hidden!important;
+
+        white-space:normal!important;
+
+        overflow-wrap:anywhere!important;
+
+        word-break:break-word!important;
     }
 
     .items td.left>.product{
+        display:block!important;
+
+        width:100%!important;
+        max-width:100%!important;
+
+        box-sizing:border-box!important;
+
         font-size:6.2pt!important;
+
+        text-align:left!important;
+
+        white-space:normal!important;
+
+        overflow-wrap:anywhere!important;
+
+        word-break:break-word!important;
+
+        min-width:0!important;
+
+        height:auto!important;
     }
+
+
+    /* Model / Brand / Company */
+    .items small,
+    .items td.left small{
+        display:flex!important;
+
+        width:100%!important;
+        max-width:100%!important;
+
+        font-size:5.7pt!important;
+
+        line-height:1.05!important;
+
+        margin-top:.3mm!important;
+
+        white-space:normal!important;
+
+        overflow-wrap:anywhere!important;
+
+        word-break:break-word!important;
+
+        min-width:0!important;
+
+        align-items:flex-start!important;
+    }
+
 
     .items td.left small input{
+        display:inline-block!important;
+
+        width:auto!important;
+        max-width:100%!important;
+
+        flex:1 1 auto!important;
+
+        min-width:0!important;
+
+        box-sizing:border-box!important;
+
         font-size:5.7pt!important;
+
+        text-align:left!important;
+
+        white-space:normal!important;
+
+        overflow-wrap:anywhere!important;
+
+        word-break:break-word!important;
+
+        height:auto!important;
     }
 
+
+    /* Numeric columns stay clean */
     .items td.taxable,
     .items td.cgst,
     .items td.sgst,
     .items td.line-total{
         white-space:nowrap!important;
+
         text-align:right!important;
+
         font-variant-numeric:tabular-nums!important;
     }
+
+
+    /* =====================================================
+       AFTER ITEMS
+       ===================================================== */
 
     .after-items .words{
         min-height:16mm!important;
         height:auto!important;
     }
 
-    /* FIX: allow all six summary rows to have proper height */
     .after-items .tax-summary{
         min-height:16mm!important;
         height:auto!important;
@@ -826,15 +1039,14 @@ footer{
         font-size:6pt!important;
     }
 
+
     /* =====================================================
-       TAX SUMMARY OVERLAP FIX
+       TAX SUMMARY
        ===================================================== */
 
     .tax-summary p{
         display:grid!important;
 
-        /* Left = label
-           Right = fixed amount column */
         grid-template-columns:minmax(0,1fr) 28mm!important;
 
         align-items:center!important;
@@ -852,15 +1064,24 @@ footer{
 
     .tax-summary p span{
         white-space:nowrap!important;
+
         overflow:hidden!important;
+
         text-overflow:ellipsis!important;
     }
 
     .tax-summary p b{
         white-space:nowrap!important;
+
         text-align:right!important;
+
         font-variant-numeric:tabular-nums!important;
     }
+
+
+    /* =====================================================
+       BANK / TERMS
+       ===================================================== */
 
     .bank-box{
         min-height:20mm!important;
@@ -892,8 +1113,9 @@ footer{
         font-size:5.9pt!important;
     }
 
+
     /* =====================================================
-       FINAL TOTAL OVERLAP FIX
+       FINAL TOTAL
        ===================================================== */
 
     .total-amount{
@@ -923,6 +1145,11 @@ footer{
         font-variant-numeric:tabular-nums!important;
     }
 
+
+    /* =====================================================
+       SIGNATURE
+       ===================================================== */
+
     .sign-box p{
         margin:1mm 0 .3mm!important;
         font-size:5.9pt!important;
@@ -944,6 +1171,11 @@ footer{
         padding:.7mm!important;
         font-size:5.9pt!important;
     }
+
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
 
     footer{
         margin-top:.8mm!important;
