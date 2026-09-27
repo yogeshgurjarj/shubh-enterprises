@@ -1,4 +1,3 @@
-```css
 *{
     box-sizing:border-box;
 }
@@ -14,6 +13,11 @@ body{
     max-width:1200px;
     margin:20px auto;
 }
+
+
+/* =========================================================
+   TOOLBAR
+   ========================================================= */
 
 .toolbar{
     display:flex;
@@ -42,6 +46,11 @@ body{
     border-color:#1d4f8f;
 }
 
+
+/* =========================================================
+   BILL
+   ========================================================= */
+
 .bill{
     background:#fff;
     border:2px solid #111;
@@ -55,6 +64,11 @@ body{
     font-style:italic;
     margin:-4px 0 7px;
 }
+
+
+/* =========================================================
+   COMPANY HEADER
+   ========================================================= */
 
 .company-header{
     border:1px solid #111;
@@ -111,6 +125,11 @@ body{
     color:#000;
 }
 
+
+/* =========================================================
+   QUOTATION META
+   ========================================================= */
+
 .quote-meta{
     height:32px;
     border:1px solid #111;
@@ -128,6 +147,11 @@ body{
     font-weight:bold;
     width:90px;
 }
+
+
+/* =========================================================
+   PARTY SECTION
+   ========================================================= */
 
 .party-grid{
     display:grid;
@@ -217,6 +241,7 @@ body{
     text-align:center;
     min-width:0;
     overflow:hidden;
+    vertical-align:middle;
 }
 
 .items th{
@@ -230,79 +255,154 @@ body{
 
 /* =========================================================
    ITEM TABLE COLUMN WIDTHS
-   CGST / SGST BALANCED
+   =========================================================
+
+   TOTAL = 100%
+
+   Sr. No.          = 5%
+   Name of Product  = 40%
+   QTY              = 5%
+   Unit             = 5%
+   Rate             = 5%
+   Taxable Value    = 10%
+
+   CGST              = 10%
+       Rate          = 4%
+       Amount        = 6%
+
+   SGST              = 10%
+       Rate          = 4%
+       Amount        = 6%
+
+   Total             = 10%
+
+   ---------------------------------------------------------
+   IMPORTANT:
+   The last Remove column is hidden during PRINT.
    ========================================================= */
 
-/* Sr. No. */
+
+/* =========================================================
+   1. SR. NO. = 5%
+   ========================================================= */
+
 .items th:nth-child(1),
 .items td:nth-child(1){
-    width:3%;
+    width:5%;
 }
 
-/* Product / Model / Brand / Company */
+
+/* =========================================================
+   2. NAME OF PRODUCT = 40%
+   ========================================================= */
+
 .items th:nth-child(2),
 .items td:nth-child(2){
-    width:24%;
+    width:40%;
 }
 
-/* QTY */
+
+/* =========================================================
+   3. QTY = 5%
+   ========================================================= */
+
 .items th:nth-child(3),
 .items td:nth-child(3){
-    width:4%;
+    width:5%;
 }
 
-/* Unit */
+
+/* =========================================================
+   4. UNIT = 5%
+   ========================================================= */
+
 .items th:nth-child(4),
 .items td:nth-child(4){
-    width:4%;
+    width:5%;
 }
 
-/* Rate */
+
+/* =========================================================
+   5. RATE = 5%
+   ========================================================= */
+
 .items th:nth-child(5),
 .items td:nth-child(5){
-    width:7%;
+    width:5%;
 }
 
-/* Taxable Value */
+
+/* =========================================================
+   6. TAXABLE VALUE = 10%
+   ========================================================= */
+
 .items th:nth-child(6),
 .items td:nth-child(6){
-    width:11%;
+    width:10%;
 }
 
-/* CGST Rate */
+
+/* =========================================================
+   7. CGST RATE = 4%
+   ========================================================= */
+
 .items th:nth-child(7),
 .items td:nth-child(7){
     width:4%;
 }
 
-/* CGST Amount */
+
+/* =========================================================
+   8. CGST AMOUNT = 6%
+   ========================================================= */
+
 .items th:nth-child(8),
 .items td:nth-child(8){
-    width:13%;
+    width:6%;
 }
 
-/* SGST Rate */
+
+/* =========================================================
+   9. SGST RATE = 4%
+   ========================================================= */
+
 .items th:nth-child(9),
 .items td:nth-child(9){
     width:4%;
 }
 
-/* SGST Amount */
+
+/* =========================================================
+   10. SGST AMOUNT = 6%
+   ========================================================= */
+
 .items th:nth-child(10),
 .items td:nth-child(10){
-    width:13%;
+    width:6%;
 }
 
-/* Total */
+
+/* =========================================================
+   11. TOTAL = 10%
+   ========================================================= */
+
 .items th:nth-child(11),
 .items td:nth-child(11){
     width:10%;
 }
 
-/* Remove */
+
+/* =========================================================
+   12. REMOVE BUTTON
+   =========================================================
+
+   This column is only for the browser UI.
+   It is completely removed from print.
+   ========================================================= */
+
 .items th:nth-child(12),
 .items td:nth-child(12){
-    width:3%;
+    width:30px;
 }
 
 
@@ -333,44 +433,68 @@ body{
     word-break:break-word;
 }
 
+
+/* =========================================================
+   PRODUCT NAME
+   ========================================================= */
+
 .items td.left>.product{
     display:block;
     width:100%;
     max-width:100%;
     box-sizing:border-box;
-    font-size:10px!important;
+
+    font-size:10px !important;
+
     text-align:left;
+
     white-space:normal;
     overflow-wrap:anywhere;
     word-break:break-word;
+
     min-width:0;
 }
 
 
-/* Model / Brand / Company */
+/* =========================================================
+   MODEL / BRAND / COMPANY
+   ========================================================= */
 
 .items td.left small{
     display:flex;
+
     width:100%;
     max-width:100%;
+
     align-items:flex-start;
-    font-size:9px!important;
+
+    font-size:9px !important;
+
     margin-top:2px;
+
     white-space:normal;
     overflow-wrap:anywhere;
     word-break:break-word;
+
     min-width:0;
 }
 
 .items td.left small input{
-    display:inline-block!important;
-    width:auto!important;
+    display:inline-block !important;
+
+    width:auto !important;
     max-width:100%;
+
     flex:1 1 auto;
+
     min-width:0;
+
     box-sizing:border-box;
-    font-size:9px!important;
+
+    font-size:9px !important;
+
     text-align:left;
+
     white-space:normal;
     overflow-wrap:anywhere;
     word-break:break-word;
@@ -386,18 +510,27 @@ body{
 .items td.sgst,
 .items td.line-total{
     white-space:nowrap;
+
     overflow:hidden;
+
     text-overflow:clip;
+
     text-align:right;
+
     font-variant-numeric:tabular-nums;
 }
+
+
+/* =========================================================
+   TABLE FOOTER
+   ========================================================= */
 
 .items tfoot td{
     font-weight:bold;
 }
 
 .right{
-    text-align:right!important;
+    text-align:right !important;
 }
 
 
@@ -415,8 +548,11 @@ body{
 .tax-summary{
     border-right:1px solid #111;
     border-bottom:1px solid #111;
+
     min-height:72px;
+
     text-align:center;
+
     padding:5px;
 }
 
@@ -427,8 +563,11 @@ body{
 
 .tax-summary{
     padding:0;
+
     text-align:left;
+
     min-width:0;
+
     overflow:hidden;
 }
 
@@ -439,28 +578,43 @@ body{
 
 .tax-summary p{
     display:grid;
+
     grid-template-columns:minmax(0,1fr) max-content;
+
     align-items:center;
+
     column-gap:8px;
+
     margin:0;
+
     padding:3px 6px;
+
     border-bottom:1px solid #ddd;
+
     width:100%;
+
     min-width:0;
 }
 
 .tax-summary p span{
     min-width:0;
+
     white-space:nowrap;
+
     overflow:hidden;
+
     text-overflow:ellipsis;
 }
 
 .tax-summary p b{
     min-width:0;
+
     white-space:nowrap;
+
     text-align:right;
+
     display:block;
+
     font-variant-numeric:tabular-nums;
 }
 
@@ -472,6 +626,7 @@ body{
 .bottom-section{
     display:grid;
     grid-template-columns:62% 38%;
+
     border-left:1px solid #111;
 }
 
@@ -481,31 +636,47 @@ body{
     border-bottom:1px solid #111;
 }
 
+
+/* =========================================================
+   BANK DETAILS
+   ========================================================= */
+
 .bank-box{
     padding:6px;
+
     border-bottom:1px solid #111;
+
     min-height:114px;
 }
 
 .bank-box h3,
 .terms h3{
     color:#174b85;
+
     font-size:10px;
+
     margin:0 0 7px;
 }
 
 .payment-method label{
     display:flex;
+
     justify-content:space-between;
+
     margin:4px 0;
+
     width:70%;
 }
 
 .payment-method input{
     border:0;
+
     font:inherit;
+
     text-align:right;
+
     font-weight:bold;
+
     width:55%;
 }
 
@@ -513,8 +684,14 @@ body{
     font-size:8px;
 }
 
+
+/* =========================================================
+   TERMS
+   ========================================================= */
+
 .terms{
     padding:7px;
+
     min-height:80px;
 }
 
@@ -533,31 +710,45 @@ body{
 
 .sign-box{
     text-align:center;
+
     position:relative;
 }
 
 .total-amount{
     border-bottom:1px solid #111;
+
     padding:8px;
+
     display:grid;
+
     grid-template-columns:minmax(0,1fr) max-content;
+
     align-items:center;
+
     column-gap:10px;
+
     font-size:14px;
+
     width:100%;
+
     box-sizing:border-box;
 }
 
 .total-amount b{
     min-width:0;
+
     white-space:nowrap;
+
     text-align:left;
 }
 
 .total-amount strong{
     min-width:0;
+
     white-space:nowrap;
+
     text-align:right;
+
     font-variant-numeric:tabular-nums;
 }
 
@@ -565,27 +756,43 @@ body{
     margin:8px 0 2px;
 }
 
+
+/* =========================================================
+   SIGNATURE STAMP
+   ========================================================= */
+
 .signature-stamp{
     margin:5px auto 3px;
+
     width:100px;
     height:50px;
+
     background:#d7d3e6;
+
     color:#382e76;
+
     display:grid;
+
     place-items:center;
+
     font-style:italic;
+
     font-weight:bold;
+
     transform:rotate(-3deg);
 }
 
 .signature-stamp img{
     display:block;
+
     object-fit:contain;
 }
 
 .signature-line{
     border-top:1px solid #111;
+
     margin:0 20px;
+
     padding:4px;
 }
 
@@ -596,25 +803,37 @@ body{
 
 footer{
     margin:7px auto 0;
+
     background:#f4f1eb;
+
     border-radius:9px;
+
     padding:6px 12px;
+
     width:max-content;
+
     font-size:9px;
 }
 
 .remove-item{
     border:0;
+
     background:#fee2e2;
+
     color:#b91c1c;
+
     cursor:pointer;
 }
 
 .save-payment{
     border:1px solid #aaa;
+
     background:#fff;
+
     padding:8px 10px;
+
     margin-left:5px;
+
     cursor:pointer;
 }
 
@@ -625,6 +844,10 @@ footer{
 
 @media print{
 
+    /* =====================================================
+       PAGE
+       ===================================================== */
+
     @page{
         size:A4 landscape;
         margin:7mm;
@@ -633,45 +856,80 @@ footer{
     html,
     body{
         width:100%;
-        margin:0!important;
-        padding:0!important;
-        background:#fff!important;
+
+        margin:0 !important;
+        padding:0 !important;
+
+        background:#fff !important;
     }
 
     *{
-        -webkit-print-color-adjust:exact!important;
-        print-color-adjust:exact!important;
+        -webkit-print-color-adjust:exact !important;
+        print-color-adjust:exact !important;
     }
 
+
+    /* =====================================================
+       PAGE WRAPPER
+       ===================================================== */
+
     .page-wrap{
-        width:100%!important;
-        max-width:none!important;
-        margin:0!important;
-        padding:0!important;
+        width:100% !important;
+
+        max-width:none !important;
+
+        margin:0 !important;
+
+        padding:0 !important;
     }
+
+
+    /* =====================================================
+       HIDE TOOLBAR / NO PRINT
+       ===================================================== */
 
     .toolbar,
     .no-print{
-        display:none!important;
+        display:none !important;
     }
 
+
+    /* =====================================================
+       BILL
+       ===================================================== */
+
     .bill{
-        width:100%!important;
-        max-width:100%!important;
-        height:auto!important;
-        max-height:none!important;
-        min-height:0!important;
-        margin:0!important;
-        padding:2.2mm!important;
-        border:1px solid #111!important;
-        font-size:6.7pt!important;
-        overflow:visible!important;
-        page-break-before:avoid!important;
-        page-break-after:avoid!important;
-        page-break-inside:avoid!important;
-        break-before:avoid!important;
-        break-after:avoid!important;
-        break-inside:avoid!important;
+        width:100% !important;
+
+        max-width:100% !important;
+
+        height:auto !important;
+
+        max-height:none !important;
+
+        min-height:0 !important;
+
+        margin:0 !important;
+
+        padding:2.2mm !important;
+
+        border:1px solid #111 !important;
+
+        font-size:6.7pt !important;
+
+        overflow:visible !important;
+
+        page-break-before:avoid !important;
+
+        page-break-after:avoid !important;
+
+        page-break-inside:avoid !important;
+
+        break-before:avoid !important;
+
+        break-after:avoid !important;
+
+        break-inside:avoid !important;
     }
 
 
@@ -680,39 +938,47 @@ footer{
        ===================================================== */
 
     .thank-you{
-        margin:0 0 1mm!important;
-        font-size:6.3pt!important;
+        margin:0 0 1mm !important;
+
+        font-size:6.3pt !important;
     }
 
     .company-header{
-        min-height:19mm!important;
-        height:19mm!important;
-        padding:1.5mm!important;
-        gap:1.5mm!important;
-        grid-template-columns:13mm 1fr auto!important;
+        min-height:19mm !important;
+
+        height:19mm !important;
+
+        padding:1.5mm !important;
+
+        gap:1.5mm !important;
+
+        grid-template-columns:13mm 1fr auto !important;
     }
 
     .logo-mark{
-        height:14mm!important;
+        height:14mm !important;
     }
 
     .logo-mark img{
-        width:11.5mm!important;
-        height:11.5mm!important;
+        width:11.5mm !important;
+
+        height:11.5mm !important;
     }
 
     .company-info h1{
-        font-size:10.5pt!important;
-        margin:0 0 .6mm!important;
+        font-size:10.5pt !important;
+
+        margin:0 0 .6mm !important;
     }
 
     .company-info p{
-        font-size:6.1pt!important;
-        margin:.25mm 0!important;
+        font-size:6.1pt !important;
+
+        margin:.25mm 0 !important;
     }
 
     .company-header h2{
-        font-size:17pt!important;
+        font-size:17pt !important;
     }
 
 
@@ -721,13 +987,15 @@ footer{
        ===================================================== */
 
     .quote-meta{
-        height:6mm!important;
-        font-size:6.2pt!important;
-        padding:0 1.5mm!important;
+        height:6mm !important;
+
+        font-size:6.2pt !important;
+
+        padding:0 1.5mm !important;
     }
 
     .quote-meta input{
-        width:21mm!important;
+        width:21mm !important;
     }
 
 
@@ -736,35 +1004,43 @@ footer{
        ===================================================== */
 
     .party h3{
-        padding:.8mm 1.5mm!important;
-        font-size:6.7pt!important;
+        padding:.8mm 1.5mm !important;
+
+        font-size:6.7pt !important;
     }
 
     .party-body{
-        min-height:19mm!important;
-        padding:1mm!important;
+        min-height:19mm !important;
+
+        padding:1mm !important;
     }
 
     .party-body p{
-        margin:.35mm 0!important;
+        margin:.35mm 0 !important;
     }
 
     .party-body textarea{
-        height:5mm!important;
-        padding:.5px 1.5px!important;
+        height:5mm !important;
+
+        padding:.5px 1.5px !important;
     }
 
     .party-body input{
-        padding:.5px 1.5px!important;
-        font-size:6.2pt!important;
+        padding:.5px 1.5px !important;
+
+        font-size:6.2pt !important;
     }
 
     .party-body span input{
-        width:34px!important;
-        min-width:0!important;
-        padding:1px 2px!important;
-        border:0!important;
-        background:transparent!important;
+        width:34px !important;
+
+        min-width:0 !important;
+
+        padding:1px 2px !important;
+
+        border:0 !important;
+
+        background:transparent !important;
     }
 
 
@@ -773,102 +1049,154 @@ footer{
        ===================================================== */
 
     .items{
-        width:100%!important;
-        overflow:hidden!important;
+        width:100% !important;
+
+        overflow:hidden !important;
     }
 
     .items table{
-        width:100%!important;
-        font-size:5.8pt!important;
-        table-layout:fixed!important;
-        border-collapse:collapse!important;
+        width:100% !important;
+
+        font-size:5.8pt !important;
+
+        table-layout:fixed !important;
+
+        border-collapse:collapse !important;
     }
 
     .items th,
     .items td{
-        padding:.45mm!important;
-        line-height:1!important;
-        overflow:hidden!important;
-        vertical-align:middle!important;
-        min-width:0!important;
+        padding:.45mm !important;
+
+        line-height:1 !important;
+
+        overflow:hidden !important;
+
+        vertical-align:middle !important;
+
+        min-width:0 !important;
     }
 
 
     /* =====================================================
-       PRINT ITEM TABLE WIDTHS
-       CGST / SGST BALANCED
+       PRINT ITEM WIDTHS
+       
+       TOTAL = 100%
+
+       Sr. No.         5%
+       Product         40%
+       QTY             5%
+       Unit            5%
+       Rate            5%
+       Taxable         10%
+
+       CGST:
+          Rate         4%
+          Amount       6%
+
+       SGST:
+          Rate         4%
+          Amount       6%
+
+       Total           10%
        ===================================================== */
 
-    /* Sr. No. */
+
+    /* Sr. No. = 5% */
+
     .items th:nth-child(1),
     .items td:nth-child(1){
-        width:3%!important;
+        width:5% !important;
     }
 
-    /* Product */
+
+    /* Product = 40% */
+
     .items th:nth-child(2),
     .items td:nth-child(2){
-        width:24%!important;
+        width:40% !important;
     }
 
-    /* QTY */
+
+    /* QTY = 5% */
+
     .items th:nth-child(3),
     .items td:nth-child(3){
-        width:4%!important;
+        width:5% !important;
     }
 
-    /* Unit */
+
+    /* Unit = 5% */
+
     .items th:nth-child(4),
     .items td:nth-child(4){
-        width:4%!important;
+        width:5% !important;
     }
 
-    /* Rate */
+
+    /* Rate = 5% */
+
     .items th:nth-child(5),
     .items td:nth-child(5){
-        width:7%!important;
+        width:5% !important;
     }
 
-    /* Taxable Value */
+
+    /* Taxable Value = 10% */
+
     .items th:nth-child(6),
     .items td:nth-child(6){
-        width:11%!important;
+        width:10% !important;
     }
 
-    /* CGST Rate */
+
+    /* CGST Rate = 4% */
+
     .items th:nth-child(7),
     .items td:nth-child(7){
-        width:4%!important;
+        width:4% !important;
     }
 
-    /* CGST Amount */
+
+    /* CGST Amount = 6% */
+
     .items th:nth-child(8),
     .items td:nth-child(8){
-        width:13%!important;
+        width:6% !important;
     }
 
-    /* SGST Rate */
+
+    /* SGST Rate = 4% */
+
     .items th:nth-child(9),
     .items td:nth-child(9){
-        width:4%!important;
+        width:4% !important;
     }
 
-    /* SGST Amount */
+
+    /* SGST Amount = 6% */
+
     .items th:nth-child(10),
     .items td:nth-child(10){
-        width:13%!important;
+        width:6% !important;
     }
 
-    /* Total */
+
+    /* Total = 10% */
+
     .items th:nth-child(11),
     .items td:nth-child(11){
-        width:10%!important;
+        width:10% !important;
     }
 
-    /* Remove */
+
+    /* Remove column */
+
     .items th:nth-child(12),
     .items td:nth-child(12){
-        width:3%!important;
+        display:none !important;
+
+        width:0 !important;
     }
 
 
@@ -877,59 +1205,97 @@ footer{
        ===================================================== */
 
     .items td.left{
-        text-align:left!important;
-        min-width:0!important;
-        overflow:hidden!important;
-        white-space:normal!important;
-        overflow-wrap:anywhere!important;
-        word-break:break-word!important;
+        text-align:left !important;
+
+        min-width:0 !important;
+
+        overflow:hidden !important;
+
+        white-space:normal !important;
+
+        overflow-wrap:anywhere !important;
+
+        word-break:break-word !important;
     }
 
     .items td.left>.product{
-        display:block!important;
-        width:100%!important;
-        max-width:100%!important;
-        box-sizing:border-box!important;
-        font-size:6.2pt!important;
-        text-align:left!important;
-        white-space:normal!important;
-        overflow-wrap:anywhere!important;
-        word-break:break-word!important;
-        min-width:0!important;
-        height:auto!important;
+        display:block !important;
+
+        width:100% !important;
+
+        max-width:100% !important;
+
+        box-sizing:border-box !important;
+
+        font-size:6.2pt !important;
+
+        text-align:left !important;
+
+        white-space:normal !important;
+
+        overflow-wrap:anywhere !important;
+
+        word-break:break-word !important;
+
+        min-width:0 !important;
+
+        height:auto !important;
     }
 
 
-    /* Model / Brand / Company */
+    /* =====================================================
+       MODEL / BRAND / COMPANY - PRINT
+       ===================================================== */
 
     .items small,
     .items td.left small{
-        display:flex!important;
-        width:100%!important;
-        max-width:100%!important;
-        font-size:5.7pt!important;
-        line-height:1.05!important;
-        margin-top:.3mm!important;
-        white-space:normal!important;
-        overflow-wrap:anywhere!important;
-        word-break:break-word!important;
-        min-width:0!important;
-        align-items:flex-start!important;
+        display:flex !important;
+
+        width:100% !important;
+
+        max-width:100% !important;
+
+        font-size:5.7pt !important;
+
+        line-height:1.05 !important;
+
+        margin-top:.3mm !important;
+
+        white-space:normal !important;
+
+        overflow-wrap:anywhere !important;
+
+        word-break:break-word !important;
+
+        min-width:0 !important;
+
+        align-items:flex-start !important;
     }
 
     .items td.left small input{
-        display:inline-block!important;
-        width:auto!important;
-        max-width:100%!important;
-        flex:1 1 auto!important;
-        min-width:0!important;
-        box-sizing:border-box!important;
-        font-size:5.7pt!important;
-        text-align:left!important;
-        white-space:normal!important;
-        overflow-wrap:anywhere!important;
-        word-break:break-word!important;
-        height:auto!important;
+        display:inline-block !important;
+
+        width:auto !important;
+
+        max-width:100% !important;
+
+        flex:1 1 auto !important;
+
+        min-width:0 !important;
+
+        box-sizing:border-box !important;
+
+        font-size:5.7pt !important;
+
+        text-align:left !important;
+
+        white-space:normal !important;
+
+        overflow-wrap:anywhere !important;
+
+        word-break:break-word !important;
+
+        height:auto !important;
     }
 
 
@@ -941,11 +1307,15 @@ footer{
     .items td.cgst,
     .items td.sgst,
     .items td.line-total{
-        white-space:nowrap!important;
-        overflow:hidden!important;
-        text-overflow:clip!important;
-        text-align:right!important;
-        font-variant-numeric:tabular-nums!important;
+        white-space:nowrap !important;
+
+        overflow:hidden !important;
+
+        text-overflow:clip !important;
+
+        text-align:right !important;
+
+        font-variant-numeric:tabular-nums !important;
     }
 
 
@@ -954,22 +1324,25 @@ footer{
        ===================================================== */
 
     .after-items .words{
-        min-height:16mm!important;
-        height:auto!important;
+        min-height:16mm !important;
+
+        height:auto !important;
     }
 
     .after-items .tax-summary{
-        min-height:16mm!important;
-        height:auto!important;
+        min-height:16mm !important;
+
+        height:auto !important;
     }
 
     .words{
-        padding:1mm!important;
+        padding:1mm !important;
     }
 
     .words strong{
-        margin-top:.6mm!important;
-        font-size:6pt!important;
+        margin-top:.6mm !important;
+
+        font-size:6pt !important;
     }
 
 
@@ -978,26 +1351,37 @@ footer{
        ===================================================== */
 
     .tax-summary p{
-        display:grid!important;
-        grid-template-columns:minmax(0,1fr) 28mm!important;
-        align-items:center!important;
-        column-gap:2mm!important;
-        padding:.65mm 1mm!important;
-        line-height:1.1!important;
-        min-height:2.55mm!important;
-        width:100%!important;
+        display:grid !important;
+
+        grid-template-columns:minmax(0,1fr) 28mm !important;
+
+        align-items:center !important;
+
+        column-gap:2mm !important;
+
+        padding:.65mm 1mm !important;
+
+        line-height:1.1 !important;
+
+        min-height:2.55mm !important;
+
+        width:100% !important;
     }
 
     .tax-summary p span{
-        white-space:nowrap!important;
-        overflow:hidden!important;
-        text-overflow:ellipsis!important;
+        white-space:nowrap !important;
+
+        overflow:hidden !important;
+
+        text-overflow:ellipsis !important;
     }
 
     .tax-summary p b{
-        white-space:nowrap!important;
-        text-align:right!important;
-        font-variant-numeric:tabular-nums!important;
+        white-space:nowrap !important;
+
+        text-align:right !important;
+
+        font-variant-numeric:tabular-nums !important;
     }
 
 
@@ -1006,33 +1390,38 @@ footer{
        ===================================================== */
 
     .bank-box{
-        min-height:20mm!important;
-        padding:1.5mm!important;
+        min-height:20mm !important;
+
+        padding:1.5mm !important;
     }
 
     .bank-box h3,
     .terms h3{
-        font-size:6.6pt!important;
-        margin:0 0 1mm!important;
+        font-size:6.6pt !important;
+
+        margin:0 0 1mm !important;
     }
 
     .payment-method label{
-        margin:.55mm 0!important;
-        font-size:5.9pt!important;
+        margin:.55mm 0 !important;
+
+        font-size:5.9pt !important;
     }
 
     .payment-method input{
-        font-size:5.9pt!important;
+        font-size:5.9pt !important;
     }
 
     .terms{
-        min-height:12mm!important;
-        padding:1.5mm!important;
+        min-height:12mm !important;
+
+        padding:1.5mm !important;
     }
 
     .terms p{
-        margin:.55mm 0!important;
-        font-size:5.9pt!important;
+        margin:.55mm 0 !important;
+
+        font-size:5.9pt !important;
     }
 
 
@@ -1041,24 +1430,33 @@ footer{
        ===================================================== */
 
     .total-amount{
-        display:grid!important;
-        grid-template-columns:minmax(0,1fr) 30mm!important;
-        align-items:center!important;
-        column-gap:2mm!important;
-        padding:1.5mm!important;
-        font-size:8.5pt!important;
-        width:100%!important;
+        display:grid !important;
+
+        grid-template-columns:minmax(0,1fr) 30mm !important;
+
+        align-items:center !important;
+
+        column-gap:2mm !important;
+
+        padding:1.5mm !important;
+
+        font-size:8.5pt !important;
+
+        width:100% !important;
     }
 
     .total-amount b{
-        white-space:nowrap!important;
-        text-align:left!important;
+        white-space:nowrap !important;
+
+        text-align:left !important;
     }
 
     .total-amount strong{
-        white-space:nowrap!important;
-        text-align:right!important;
-        font-variant-numeric:tabular-nums!important;
+        white-space:nowrap !important;
+
+        text-align:right !important;
+
+        font-variant-numeric:tabular-nums !important;
     }
 
 
@@ -1067,25 +1465,31 @@ footer{
        ===================================================== */
 
     .sign-box p{
-        margin:1mm 0 .3mm!important;
-        font-size:5.9pt!important;
+        margin:1mm 0 .3mm !important;
+
+        font-size:5.9pt !important;
     }
 
     .signature-stamp{
-        width:22mm!important;
-        height:9mm!important;
-        margin:.6mm auto!important;
+        width:22mm !important;
+
+        height:9mm !important;
+
+        margin:.6mm auto !important;
     }
 
     .signature-stamp img{
-        width:20mm!important;
-        height:8mm!important;
+        width:20mm !important;
+
+        height:8mm !important;
     }
 
     .signature-line{
-        margin:0 6mm!important;
-        padding:.7mm!important;
-        font-size:5.9pt!important;
+        margin:0 6mm !important;
+
+        padding:.7mm !important;
+
+        font-size:5.9pt !important;
     }
 
 
@@ -1094,17 +1498,10 @@ footer{
        ===================================================== */
 
     footer{
-        margin-top:.8mm!important;
-        padding:.7mm 2.5mm!important;
-        font-size:5.6pt!important;
+        margin-top:.8mm !important;
+
+        padding:.7mm 2.5mm !important;
+
+        font-size:5.6pt !important;
     }
 }
-```
-
-**One important note:** this version keeps the CGST/SGST **rate columns deliberately narrow** and gives the saved space to the **amount columns**. So the table is now:
-
-**Taxable 11% → CGST Rate 4% → CGST Amount 13% → SGST Rate 4% → SGST Amount 13% → Total 10%**
-
-This is the layout I’d use for your maximum **₹9,999,999.00** amount while keeping the quotation printable on **one A4 landscape page**.
-
-If your actual HTML has **CGST Rate/Amount and SGST Rate/Amount in a different column order**, send me the current HTML table row/header and I can align the CSS exactly to it.
